@@ -30,7 +30,7 @@ format:
       light: [cosmo, _assets/custom.scss]
     fontsize: 1.1em
     linestretch: 1.6
-    mainfont: "Palatino, 'Palatino Linotype', 'Book Antiqua', serif"
+    mainfont: "Charter, 'Songti SC', 'Noto Serif CJK SC', Georgia, serif"
     grid:
       sidebar-width: 250px
       body-width: 750px

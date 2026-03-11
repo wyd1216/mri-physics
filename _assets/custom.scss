@@ -6,6 +6,11 @@ $link-color: #1e5a96;
 $code-color: #3a6e8c;
 $body-bg: #fafcff;
 
+// ── Font stacks ──
+$font-family-serif: Charter, 'Songti SC', 'Noto Serif CJK SC', Georgia, serif;
+$font-family-sans: Avenir, 'PingFang SC', 'Noto Sans CJK SC', 'Helvetica Neue', sans-serif;
+$font-family-mono: Menlo, 'SF Mono', 'Fira Code', monospace;
+
 // ── Sidebar / TOC ──
 $toc-color: #555;
 $toc-active-border: $link-color;
@@ -39,6 +44,7 @@ html {
 // ═══════════════════════════════════════════
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-sans;
   font-weight: 400;
   line-height: 1.25;
   color: #111;
@@ -174,6 +180,7 @@ thead {
 }
 
 th {
+  font-family: $font-family-sans;
   font-weight: 600;
   padding: 0.6em 0.9em;
   text-align: left;
@@ -223,6 +230,7 @@ div.sourceCode {
 }
 
 code {
+  font-family: $font-family-mono;
   font-size: 0.9em;
   padding: 0.15em 0.35em;
   background-color: rgba(0, 0, 0, 0.04);
@@ -247,6 +255,7 @@ pre code {
 }
 
 .callout-header {
+  font-family: $font-family-sans;
   font-weight: 600;
   font-size: 0.95em;
 }
@@ -291,6 +300,7 @@ pre code {
 }
 
 .sidebar-title {
+  font-family: $font-family-sans;
   font-weight: 600;
   font-size: 1.05em;
   color: #333;
@@ -345,6 +355,7 @@ pre code {
 // ═══════════════════════════════════════════
 
 .navbar {
+  font-family: $font-family-sans;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
