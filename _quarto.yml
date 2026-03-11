@@ -52,7 +52,14 @@ format:
     pdf-engine: xelatex
     documentclass: scrbook
     papersize: a4
-    fontsize: 11pt
+    fontsize: 10pt
+    geometry:
+      - top=2.5cm
+      - bottom=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - marginparwidth=4cm
+      - marginparsep=0.5cm
     toc: true
     toc-depth: 3
     number-sections: true
@@ -67,7 +74,7 @@ format:
     include-in-header:
       text: |
         \usepackage{xeCJK}
-        \setCJKmainfont{Songti SC}[BoldFont=Heiti SC, ItalicFont=Kaiti SC]
+        \setCJKmainfont{Songti SC}[BoldFont=Heiti SC, BoldFeatures={Scale=MatchUppercase}, ItalicFont=Kaiti SC, ItalicFeatures={Scale=MatchUppercase}]
         \setCJKsansfont{PingFang SC}
         \setCJKmonofont{Menlo}
         \usepackage{ragged2e}
