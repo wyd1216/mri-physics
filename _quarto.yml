@@ -9,7 +9,7 @@ book:
   date: today
   date-format: "YYYY-MM-DD"
   search: true
-  repo-url: https://github.com/YOUR_USERNAME/mri-physics
+  repo-url: https://github.com/wyd1216/mri-physics
   repo-actions: [edit, issue]
   sharing: [twitter, facebook]
   chapters:
