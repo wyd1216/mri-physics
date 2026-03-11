@@ -16,8 +16,9 @@ book:
     - index.qmd
     - part: "核心理论"
       chapters:
-        - chapters/01-basics/basics.qmd
-        - chapters/02-sequences/sequences.qmd
+        - chapters/01-hydrogen-proton/hydrogen-proton.qmd
+        - chapters/02-basics/basics.qmd
+        - chapters/03-sequences/sequences.qmd
     - references.qmd
 
 bibliography: references.bib
