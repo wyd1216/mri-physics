@@ -70,6 +70,9 @@ format:
         \setCJKmainfont{Songti SC}[BoldFont=Heiti SC, ItalicFont=Kaiti SC]
         \setCJKsansfont{PingFang SC}
         \setCJKmonofont{Menlo}
+        \usepackage{ragged2e}
+        \let\oldmarginpar\marginpar
+        \renewcommand{\marginpar}[1]{\oldmarginpar{\RaggedRight #1}}
 
 execute:
   freeze: auto
