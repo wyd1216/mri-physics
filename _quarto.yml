@@ -57,8 +57,8 @@ format:
     toc-depth: 3
     number-sections: true
     link-citations: true
-    mainfont: "Songti SC"
-    sansfont: "PingFang SC"
+    mainfont: "Charter"
+    sansfont: "Optima"
     monofont: "Menlo"
     CJKmainfont: "Songti SC"
     CJKsansfont: "PingFang SC"
