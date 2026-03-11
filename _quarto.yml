@@ -90,10 +90,10 @@ format:
           \begingroup
             \setlength{\parindent}{0pt}%
             \setlength{\parskip}{4pt}%
-            {\LARGE\itshape\@title\par}%
-            {\Large\itshape 磁共振成像物理学基础\par}%
-            {\Large\itshape\@author\par}%
-            {\Large\itshape\@date\par}%
+            {\LARGE\bfseries\@title\par}%
+            {\Large 磁共振成像物理学基础\par}%
+            {\Large\@author\par}%
+            {\Large\@date\par}%
           \endgroup
           \thispagestyle{plain}%
           \tuftebreak
@@ -103,6 +103,12 @@ format:
         % ── Fix running headers: disable allcaps/smallcaps (breaks CJK) ──
         \renewcommand{\allcaps}[1]{#1}
         \renewcommand{\smallcaps}[1]{#1}
+        % ── Override tufte-book italic headings to upright bold ──
+        \usepackage{titlesec}
+        \titleformat{\chapter}[display]{\relax\Large\bfseries}{\chaptertitlename\ \thechapter}{0pt}{\Huge\bfseries}
+        \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+        \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+        \titleformat{\subsubsection}{\normalsize}{\thesubsubsection}{1em}{}
 
 execute:
   freeze: auto
