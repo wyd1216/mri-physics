@@ -28,8 +28,8 @@ format:
   html:
     theme:
       light: [cosmo, _assets/custom.scss]
-    fontsize: 1.1em
-    linestretch: 1.6
+    fontsize: 1.0em
+    linestretch: 1.55
     mainfont: "Charter, 'Songti SC', 'Noto Serif CJK SC', Georgia, serif"
     grid:
       sidebar-width: 250px
@@ -52,7 +52,7 @@ format:
     pdf-engine: xelatex
     documentclass: scrbook
     papersize: a4
-    fontsize: 10pt
+    fontsize: 9pt
     geometry:
       - top=2.5cm
       - bottom=2.5cm
