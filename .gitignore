@@ -1,0 +1,14 @@
+_book/
+_freeze/
+.quarto/
+.DS_Store
+*.log
+*.aux
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+/.quarto/
+**/*.quarto_ipynb

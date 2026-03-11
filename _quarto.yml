@@ -1,0 +1,76 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "MRI Physics"
+  subtitle: "磁共振成像物理学基础"
+  author: "MRI Physics Contributors"
+  date: today
+  date-format: "YYYY-MM-DD"
+  search: true
+  repo-url: https://github.com/YOUR_USERNAME/mri-physics
+  repo-actions: [edit, issue]
+  sharing: [twitter, facebook]
+  chapters:
+    - index.qmd
+    - part: "核心理论"
+      chapters:
+        - chapters/01-basics/basics.qmd
+        - chapters/02-sequences/sequences.qmd
+    - references.qmd
+
+bibliography: references.bib
+csl: _assets/ieee.csl
+
+format:
+  html:
+    theme:
+      light: [cosmo, _assets/custom.scss]
+    fontsize: 1.1em
+    linestretch: 1.6
+    mainfont: "Palatino, 'Palatino Linotype', 'Book Antiqua', serif"
+    grid:
+      sidebar-width: 250px
+      body-width: 750px
+      margin-width: 350px
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    number-depth: 3
+    code-tools: true
+    code-fold: true
+    code-summary: "Show code"
+    highlight-style: github
+    link-citations: true
+    reference-location: margin
+    citation-location: margin
+    cap-location: margin
+
+  pdf:
+    pdf-engine: xelatex
+    documentclass: scrbook
+    papersize: a4
+    fontsize: 11pt
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    link-citations: true
+    mainfont: "Songti SC"
+    sansfont: "PingFang SC"
+    monofont: "Menlo"
+    CJKmainfont: "Songti SC"
+    CJKsansfont: "PingFang SC"
+    CJKmonofont: "Menlo"
+    colorlinks: true
+    include-in-header:
+      text: |
+        \usepackage{xeCJK}
+        \setCJKmainfont{Songti SC}[BoldFont=Heiti SC, ItalicFont=Kaiti SC]
+        \setCJKsansfont{PingFang SC}
+        \setCJKmonofont{Menlo}
+
+execute:
+  freeze: auto
+
+lang: zh

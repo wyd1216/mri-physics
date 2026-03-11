@@ -1,0 +1,146 @@
+/*-- scss:defaults --*/
+
+// Tufte-inspired color palette
+$body-color: #111111;
+$link-color: #a00000;
+$code-color: #7a2518;
+
+/*-- scss:rules --*/
+
+// ── Tufte-style body typography ──
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ── Headings: clean, understated ──
+h1, h2, h3, h4 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-top: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-style: italic;
+  margin-top: 2rem;
+  border-bottom: none;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+}
+
+// ── Margin notes & sidenotes (Tufte hallmark) ──
+.column-margin {
+  font-size: 0.85em;
+  color: #555;
+  line-height: 1.4;
+}
+
+// ── Figures: full-width option ──
+.column-page {
+  margin-left: -10%;
+  margin-right: -10%;
+}
+
+// ── Blockquotes: Tufte-style epigraph ──
+blockquote {
+  border-left: none;
+  padding-left: 1.5em;
+  font-style: italic;
+  margin: 2em 0 2em 2em;
+  max-width: 55%;
+
+  footer, .blockquote-footer {
+    font-style: normal;
+    font-size: 0.85em;
+    text-align: right;
+    margin-top: 0.5em;
+
+    &::before {
+      content: "— ";
+    }
+  }
+}
+
+// ── Table styling ──
+table {
+  border-collapse: collapse;
+  font-size: 0.95em;
+  width: 100%;
+  margin: 1.5em 0;
+}
+
+th {
+  border-bottom: 2px solid #111;
+  font-weight: 600;
+  padding: 0.4em 0.8em;
+  text-align: left;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.4em 0.8em;
+}
+
+// ── Math display: generous spacing ──
+.math.display {
+  margin: 1.5em 0;
+}
+
+// ── Code blocks ──
+div.sourceCode {
+  border: none;
+  border-left: 3px solid #ddd;
+  background-color: #fafafa;
+  font-size: 0.9em;
+}
+
+// ── Title page styling ──
+.quarto-title-block {
+  margin-bottom: 3em;
+
+  .quarto-title {
+    .title {
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      font-style: italic;
+      color: #555;
+      margin-top: 0.5em;
+    }
+  }
+}
+
+// ── Footnote & citation in margin ──
+.footnote-ref {
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+.margin-caption {
+  font-size: 0.85em;
+  color: #555;
+  line-height: 1.35;
+}
+
+// ── Print-friendly tweaks ──
+@media print {
+  body {
+    font-size: 11pt;
+  }
+
+  .column-margin {
+    display: none;
+  }
+}
