@@ -2,6 +2,8 @@
 
 磁共振成像物理学基础 — 一本基于 [Quarto Book](https://quarto.org/docs/books/) 的开源文档。
 
+👉 **在线阅读：<https://wyd1216.github.io/mri-physics/>**
+
 ## 概览
 
 本项目以简洁、直观的方式介绍 MRI 的核心物理原理，采用 Tufte 风格排版，支持边栏注释、LaTeX 数学公式和交叉引用。
