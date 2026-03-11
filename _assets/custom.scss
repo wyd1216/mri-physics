@@ -8,6 +8,7 @@ $body-bg: #fafcff;
 
 // ── Font stacks ──
 $font-family-serif: Charter, 'Songti SC', 'Noto Serif CJK SC', Georgia, serif;
+$font-family-heading: Optima, 'PingFang SC', 'Noto Sans CJK SC', sans-serif;
 $font-family-sans: Avenir, 'PingFang SC', 'Noto Sans CJK SC', 'Helvetica Neue', sans-serif;
 $font-family-mono: Menlo, 'SF Mono', 'Fira Code', monospace;
 
@@ -44,7 +45,7 @@ html {
 // ═══════════════════════════════════════════
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-family-sans;
+  font-family: $font-family-heading;
   font-weight: 400;
   line-height: 1.25;
   color: #111;
@@ -180,7 +181,7 @@ thead {
 }
 
 th {
-  font-family: $font-family-sans;
+  font-family: $font-family-heading;
   font-weight: 600;
   padding: 0.6em 0.9em;
   text-align: left;
@@ -255,7 +256,7 @@ pre code {
 }
 
 .callout-header {
-  font-family: $font-family-sans;
+  font-family: $font-family-heading;
   font-weight: 600;
   font-size: 0.95em;
 }
@@ -300,7 +301,7 @@ pre code {
 }
 
 .sidebar-title {
-  font-family: $font-family-sans;
+  font-family: $font-family-heading;
   font-weight: 600;
   font-size: 1.05em;
   color: #333;
@@ -355,7 +356,7 @@ pre code {
 // ═══════════════════════════════════════════
 
 .navbar {
-  font-family: $font-family-sans;
+  font-family: $font-family-heading;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
