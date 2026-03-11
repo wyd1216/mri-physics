@@ -1,67 +1,156 @@
 /*-- scss:defaults --*/
 
-// Tufte-inspired color palette
-$body-color: #111111;
-$link-color: #a00000;
-$code-color: #7a2518;
+// ── Color system ──
+$body-color: #1a1a1a;
+$link-color: #9b2335;
+$code-color: #6d4534;
+$body-bg: #fffff8;
+
+// ── Sidebar / TOC ──
+$toc-color: #555;
+$toc-active-border: $link-color;
+$toc-font-size: 0.88em;
 
 /*-- scss:rules --*/
 
-// ── Tufte-style body typography ──
+// ═══════════════════════════════════════════
+//  BODY & GLOBAL TYPOGRAPHY
+// ═══════════════════════════════════════════
+
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $body-bg;
 }
 
-// ── Headings: clean, understated ──
-h1, h2, h3, h4 {
+// Smooth scroll
+html {
+  scroll-behavior: smooth;
+}
+
+// Selection highlight
+::selection {
+  background-color: rgba(155, 35, 53, 0.15);
+}
+
+// ═══════════════════════════════════════════
+//  HEADINGS
+// ═══════════════════════════════════════════
+
+h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.25;
+  color: #111;
 }
 
 h1 {
-  font-size: 2.2rem;
-  margin-top: 2rem;
+  font-size: 2.4rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-style: italic;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
   border-bottom: none;
+  padding-bottom: 0.3em;
 }
 
 h3 {
-  font-size: 1.3rem;
-  margin-top: 1.5rem;
+  font-size: 1.35rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
 }
 
-// ── Margin notes & sidenotes (Tufte hallmark) ──
+h4 {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #333;
+}
+
+// ═══════════════════════════════════════════
+//  PARAGRAPHS & LISTS
+// ═══════════════════════════════════════════
+
+p {
+  margin-bottom: 1.2em;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+li {
+  margin-bottom: 0.3em;
+}
+
+// First paragraph after heading — subtle drop effect
+h2 + p::first-line,
+h3 + p::first-line {
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+
+// ═══════════════════════════════════════════
+//  LINKS
+// ═══════════════════════════════════════════
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-bottom-color: $link-color;
+  }
+}
+
+// ═══════════════════════════════════════════
+//  MARGIN NOTES (Tufte hallmark)
+// ═══════════════════════════════════════════
+
 .column-margin {
-  font-size: 0.85em;
-  color: #555;
-  line-height: 1.4;
+  font-size: 0.82em;
+  color: #666;
+  line-height: 1.45;
+  border-left: 2px solid rgba(155, 35, 53, 0.25);
+  padding-left: 0.8em;
+  margin-top: 0.2em;
 }
 
-// ── Figures: full-width option ──
-.column-page {
-  margin-left: -10%;
-  margin-right: -10%;
-}
+// ═══════════════════════════════════════════
+//  BLOCKQUOTES (Epigraph style)
+// ═══════════════════════════════════════════
 
-// ── Blockquotes: Tufte-style epigraph ──
 blockquote {
   border-left: none;
-  padding-left: 1.5em;
+  padding: 0.5em 0 0.5em 1.8em;
   font-style: italic;
-  margin: 2em 0 2em 2em;
-  max-width: 55%;
+  margin: 2em 0 2em 1em;
+  max-width: 60%;
+  position: relative;
+  color: #444;
+
+  &::before {
+    content: "\201C";
+    font-size: 3.5em;
+    color: rgba(155, 35, 53, 0.2);
+    position: absolute;
+    left: -0.15em;
+    top: -0.15em;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
 
   footer, .blockquote-footer {
     font-style: normal;
     font-size: 0.85em;
     text-align: right;
     margin-top: 0.5em;
+    color: #777;
 
     &::before {
       content: "— ";
@@ -69,78 +158,287 @@ blockquote {
   }
 }
 
-// ── Table styling ──
+// ═══════════════════════════════════════════
+//  TABLES
+// ═══════════════════════════════════════════
+
 table {
   border-collapse: collapse;
-  font-size: 0.95em;
+  font-size: 0.92em;
   width: 100%;
-  margin: 1.5em 0;
+  margin: 1.8em 0;
+}
+
+thead {
+  border-bottom: 2px solid #333;
 }
 
 th {
-  border-bottom: 2px solid #111;
   font-weight: 600;
-  padding: 0.4em 0.8em;
+  padding: 0.6em 0.9em;
   text-align: left;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #444;
+  border-bottom: none;
 }
 
 td {
-  border-bottom: 1px solid #ddd;
-  padding: 0.4em 0.8em;
+  padding: 0.55em 0.9em;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-// ── Math display: generous spacing ──
+tbody tr:hover {
+  background-color: rgba(155, 35, 53, 0.03);
+}
+
+caption, .table-caption {
+  font-size: 0.88em;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.5em;
+}
+
+// ═══════════════════════════════════════════
+//  MATH
+// ═══════════════════════════════════════════
+
 .math.display {
+  margin: 1.8em 0;
+  overflow-x: auto;
+}
+
+// ═══════════════════════════════════════════
+//  CODE BLOCKS
+// ═══════════════════════════════════════════
+
+div.sourceCode {
+  border: none;
+  border-left: 3px solid rgba(155, 35, 53, 0.3);
+  background-color: #f8f8f5;
+  font-size: 0.88em;
+  border-radius: 0 4px 4px 0;
   margin: 1.5em 0;
 }
 
-// ── Code blocks ──
-div.sourceCode {
-  border: none;
-  border-left: 3px solid #ddd;
-  background-color: #fafafa;
+code {
   font-size: 0.9em;
+  padding: 0.15em 0.35em;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
 }
 
-// ── Title page styling ──
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+// ═══════════════════════════════════════════
+//  CALLOUTS (enhanced)
+// ═══════════════════════════════════════════
+
+.callout {
+  border-radius: 6px;
+  margin: 1.8em 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  border-left-width: 4px;
+}
+
+.callout-header {
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.callout-body {
+  font-size: 0.95em;
+}
+
+// ═══════════════════════════════════════════
+//  TITLE PAGE
+// ═══════════════════════════════════════════
+
 .quarto-title-block {
-  margin-bottom: 3em;
+  margin-bottom: 3.5em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #e0e0e0;
 
   .quarto-title {
     .title {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 400;
-      line-height: 1.15;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
 
     .subtitle {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-style: italic;
-      color: #555;
-      margin-top: 0.5em;
+      color: #666;
+      margin-top: 0.6em;
     }
   }
 }
 
-// ── Footnote & citation in margin ──
+// ═══════════════════════════════════════════
+//  SIDEBAR & TOC
+// ═══════════════════════════════════════════
+
+#quarto-sidebar {
+  border-right: 1px solid #eee;
+  background-color: #fafaf5;
+}
+
+.sidebar-title {
+  font-weight: 600;
+  font-size: 1.05em;
+  color: #333;
+}
+
+// Active chapter highlight
+.sidebar-item-text.active {
+  color: $link-color;
+  font-weight: 600;
+}
+
+// ═══════════════════════════════════════════
+//  TOC (right side)
+// ═══════════════════════════════════════════
+
+#TOC {
+  font-size: $toc-font-size;
+
+  .active {
+    border-left: 2px solid $link-color;
+    font-weight: 500;
+  }
+}
+
+// ═══════════════════════════════════════════
+//  FOOTNOTES & CITATIONS IN MARGIN
+// ═══════════════════════════════════════════
+
 .footnote-ref {
   font-size: 0.75em;
   vertical-align: super;
+  color: $link-color;
 }
 
 .margin-caption {
-  font-size: 0.85em;
-  color: #555;
-  line-height: 1.35;
+  font-size: 0.82em;
+  color: #666;
+  line-height: 1.4;
 }
 
-// ── Print-friendly tweaks ──
+// On-page footnotes fallback
+.footnotes {
+  font-size: 0.88em;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 3em;
+  padding-top: 1em;
+  color: #555;
+}
+
+// ═══════════════════════════════════════════
+//  NAVBAR
+// ═══════════════════════════════════════════
+
+.navbar {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+// ═══════════════════════════════════════════
+//  CHAPTER NAVIGATION (prev/next)
+// ═══════════════════════════════════════════
+
+.page-navigation {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 3em;
+  padding-top: 1.5em;
+
+  .nav-page {
+    font-size: 0.92em;
+
+    .nav-page-text {
+      color: $link-color;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════
+//  HORIZONTAL RULE
+// ═══════════════════════════════════════════
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2.5em auto;
+  width: 40%;
+}
+
+// ═══════════════════════════════════════════
+//  CROSS-REFERENCE NUMBERS
+// ═══════════════════════════════════════════
+
+.quarto-xref {
+  color: $link-color;
+}
+
+// ═══════════════════════════════════════════
+//  FIGURES
+// ═══════════════════════════════════════════
+
+.column-page {
+  margin-left: -10%;
+  margin-right: -10%;
+}
+
+figure {
+  margin: 2em 0;
+}
+
+figcaption {
+  font-size: 0.85em;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.5em;
+}
+
+// ═══════════════════════════════════════════
+//  MOBILE RESPONSIVE
+// ═══════════════════════════════════════════
+
+@media (max-width: 991px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+
+  blockquote {
+    max-width: 90%;
+    margin-left: 0.5em;
+  }
+
+  .quarto-title-block .quarto-title .title {
+    font-size: 2.2rem;
+  }
+}
+
+// ═══════════════════════════════════════════
+//  PRINT
+// ═══════════════════════════════════════════
+
 @media print {
   body {
     font-size: 11pt;
+    background: white;
   }
 
   .column-margin {
     display: none;
+  }
+
+  .callout {
+    box-shadow: none;
+    border: 1px solid #ccc;
   }
 }
