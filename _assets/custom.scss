@@ -24,6 +24,7 @@ $toc-font-size: 0.88em;
 // ═══════════════════════════════════════════
 
 body {
+  font-family: $font-family-serif !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
