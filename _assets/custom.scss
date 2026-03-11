@@ -1,10 +1,10 @@
 /*-- scss:defaults --*/
 
-// ── Color system ──
+// ── Color system: Scholar Blue ──
 $body-color: #1a1a1a;
-$link-color: #9b2335;
-$code-color: #6d4534;
-$body-bg: #fffff8;
+$link-color: #1e5a96;
+$code-color: #3a6e8c;
+$body-bg: #fafcff;
 
 // ── Sidebar / TOC ──
 $toc-color: #555;
@@ -31,7 +31,7 @@ html {
 
 // Selection highlight
 ::selection {
-  background-color: rgba(155, 35, 53, 0.15);
+  background-color: rgba(30, 90, 150, 0.12);
 }
 
 // ═══════════════════════════════════════════
@@ -116,7 +116,7 @@ a {
   font-size: 0.82em;
   color: #666;
   line-height: 1.45;
-  border-left: 2px solid rgba(155, 35, 53, 0.25);
+  border-left: 2px solid rgba(30, 90, 150, 0.35);
   padding-left: 0.8em;
   margin-top: 0.2em;
 }
@@ -137,7 +137,7 @@ blockquote {
   &::before {
     content: "\201C";
     font-size: 3.5em;
-    color: rgba(155, 35, 53, 0.2);
+    color: rgba(30, 90, 150, 0.2);
     position: absolute;
     left: -0.15em;
     top: -0.15em;
@@ -190,7 +190,7 @@ td {
 }
 
 tbody tr:hover {
-  background-color: rgba(155, 35, 53, 0.03);
+  background-color: rgba(30, 90, 150, 0.04);
 }
 
 caption, .table-caption {
@@ -215,7 +215,7 @@ caption, .table-caption {
 
 div.sourceCode {
   border: none;
-  border-left: 3px solid rgba(155, 35, 53, 0.3);
+  border-left: 3px solid rgba(30, 90, 150, 0.35);
   background-color: #f8f8f5;
   font-size: 0.88em;
   border-radius: 0 4px 4px 0;
