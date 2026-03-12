@@ -14,10 +14,18 @@ book:
   sharing: [twitter, facebook]
   chapters:
     - index.qmd
-    - part: "核心理论"
+    - part: "导论"
       chapters:
         - chapters/01-hydrogen-proton/hydrogen-proton.qmd
-        - chapters/02-basics/basics.qmd
+    - part: "基础物理"
+      chapters:
+        - chapters/02-basics/magnetic-moment.qmd
+        - chapters/02-basics/gyromagnetic-ratio.qmd
+        - chapters/02-basics/precession.qmd
+        - chapters/02-basics/relaxation.qmd
+        - chapters/02-basics/bloch-equation.qmd
+    - part: "脉冲序列"
+      chapters:
         - chapters/03-sequences/sequences.qmd
     - references.qmd
 

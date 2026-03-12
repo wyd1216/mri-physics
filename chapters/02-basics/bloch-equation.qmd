@@ -1,0 +1,7 @@
+# 布洛赫方程 {#sec-bloch-equation}
+
+综合描述磁化矢量 $\mathbf{M}$ 在磁场中的运动，**布洛赫方程**为：
+
+$$
+\frac{d\mathbf{M}}{dt} = \gamma \mathbf{M} \times \mathbf{B} - \frac{M_x \hat{x} + M_y \hat{y}}{T_2} - \frac{(M_z - M_0)\hat{z}}{T_1}
+$$ {#eq-bloch}

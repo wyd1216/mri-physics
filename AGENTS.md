@@ -24,8 +24,12 @@ mri-physics/
 │   ├── 01-hydrogen-proton/
 │   │   ├── hydrogen-proton.qmd
 │   │   └── images/                      # 该章节专属图片
-│   ├── 02-basics/
-│   │   ├── basics.qmd
+│   ├── 02-basics/                       # 一个主题目录可包含多个 .qmd
+│   │   ├── magnetic-moment.qmd
+│   │   ├── gyromagnetic-ratio.qmd
+│   │   ├── precession.qmd
+│   │   ├── relaxation.qmd
+│   │   ├── bloch-equation.qmd
 │   │   └── images/
 │   └── 03-sequences/
 │       ├── sequences.qmd
@@ -50,7 +54,7 @@ mri-physics/
 
 - **属于现有章节** → 在对应 `.qmd` 中合适位置插入，保持逻辑连贯
 - **需要新建章节** → 创建新目录 + `.qmd`，可能需要重编号现有章节
-- **新建某章节下的子文档** → 暂不支持多文件章节，内容应合并到该章节的 `.qmd` 中
+- **某主题目录下新增文件** → 一个目录（如 `02-basics/`）可包含多个 `.qmd`，每个文件作为独立章节在 `_quarto.yml` 中注册
 
 ### 2. 内容审核与优化
 
@@ -89,10 +93,18 @@ quarto render --to pdf
 ```yaml
 chapters:
   - index.qmd
-  - part: "核心理论"
+  - part: "导论"
     chapters:
       - chapters/01-hydrogen-proton/hydrogen-proton.qmd
-      - chapters/02-basics/basics.qmd
+  - part: "基础物理"
+    chapters:
+      - chapters/02-basics/magnetic-moment.qmd
+      - chapters/02-basics/gyromagnetic-ratio.qmd
+      - chapters/02-basics/precession.qmd
+      - chapters/02-basics/relaxation.qmd
+      - chapters/02-basics/bloch-equation.qmd
+  - part: "脉冲序列"
+    chapters:
       - chapters/03-sequences/sequences.qmd
   - references.qmd
 ```
@@ -206,3 +218,5 @@ style: 样式调整                     # 排版/样式
 3. **章节编号连续** — 重命名目录时确保 `chapters/` 下的编号无间断
 4. **构建验证** — 每次修改后必须同时验证 `--to html` 和 `--to pdf`
 5. **图片路径** — 章节内图片使用相对路径 `![](images/fig.png)`，图片放在对应章节的 `images/` 目录下
+6. **标题层级** — PDF 使用 `tufte-book` 文档类，不支持 `\subsubsection`（`####`）。每个 `.qmd` 文件顶级标题为 `#`，正文最深到 `###`
+7. **多文件章节** — 同一目录下的多个 `.qmd` 各自作为独立章节注册到 `_quarto.yml`，交叉引用跨文件自动生效

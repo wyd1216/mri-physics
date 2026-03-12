@@ -1,0 +1,90 @@
+# 磁矩 {#sec-magnetic-moment}
+
+## 核自旋与磁矩
+
+原子核中的质子和中子具有内禀角动量——**自旋** (spin)。对于氢原子核 ($^1$H)，其自旋量子数 $I = 1/2$，在外磁场中会产生两个能级。
+
+::: {.column-margin}
+氢原子核是 MRI 中最常用的成像核素，因为水和脂肪中含有大量的氢原子。
+:::
+
+核磁矩 $\boldsymbol{\mu}$ 与自旋角动量 $\mathbf{I}$ 之间的关系为：
+
+$$
+\boldsymbol{\mu} = \gamma \hbar \mathbf{I}
+$$ {#eq-magnetic-moment}
+
+其中 $\gamma$ 为旋磁比 (gyromagnetic ratio)，$\hbar$ 为约化普朗克常数。
+
+## 磁矩概念的物理动机
+
+磁矩（Magnetic Moment, 记作 $\boldsymbol{\mu}$）是电磁学中用于表征物体磁性质及其与磁场相互作用强度的基本矢量。引入磁矩概念的根本目的，在于建立一个统一的物理模型，以忽略磁源具体的几何形状或微观结构，直接描述其**产生磁场的能力**以及**对外加磁场的响应**。
+
+::: {.column-margin}
+磁矩是 MRI 物理中最基础的概念之一，它将微观的量子行为与可观测的宏观电磁效应联系起来。
+:::
+
+引入磁矩概念有以下三大物理动因。
+
+### 磁源的矢量化抽象 {#sec-source-abstraction}
+
+在经典电磁学中，磁场源于电荷的运动（如电流环）。为了避免处理复杂的电流分布几何细节，物理学引入磁矩作为**磁偶极子（Magnetic Dipole）**的度量。
+
+对于任意闭合平面电流环，其磁矩定义为电流强度 $I$ 与面积矢量 $\mathbf{A}$ 的乘积：
+
+$$
+\boldsymbol{\mu} = I \mathbf{A}
+$$ {#eq-mu-current-loop}
+
+::: {.column-margin}
+@eq-mu-current-loop 使得不同形状、不同尺度的磁源（从宏观线圈到微观粒子），在远场近似下均可被视为等效的点状磁偶极子。
+:::
+
+### 与外场的相互作用接口 {#sec-field-interaction}
+
+磁矩提供了描述系统与外磁场 $\mathbf{B}$ 进行力学和能量耦合的统一数学接口，这构成了磁共振现象的动力学基础。
+
+**力矩与进动**：磁矩在外磁场中受到力矩 $\boldsymbol{\tau}$ 作用，导致角动量的变化（进动）。这是 MRI 中拉莫尔进动的经典描述起点：
+
+$$
+\boldsymbol{\tau} = \boldsymbol{\mu} \times \mathbf{B}
+$$ {#eq-torque}
+
+**能量与塞曼分裂**：磁矩与磁场的耦合具有势能 $E$。这一能量项决定了量子态的能级分裂（塞曼效应），是核磁共振信号跃迁的能量来源：
+
+$$
+E = -\boldsymbol{\mu} \cdot \mathbf{B}
+$$ {#eq-zeeman-energy}
+
+::: {.callout-tip}
+## 核心关系
+@eq-torque 和 @eq-zeeman-energy 是理解整个 MRI 物理的两个基石方程。力矩方程解释了进动现象，能量方程解释了共振跃迁。
+:::
+
+### 微观与宏观的桥梁 {#sec-micro-macro-bridge}
+
+在量子力学中，基本粒子（如质子）虽无经典电流回路，但拥有内禀角动量——自旋（Spin, $\mathbf{S}$）。磁矩概念的引入成功地将微观的量子属性映射为可计算的电磁量。通过**旋磁比（Gyromagnetic Ratio, $\gamma$）**，建立了自旋角动量与磁矩的线性关系：
+
+$$
+\boldsymbol{\mu} = \gamma \mathbf{S}
+$$ {#eq-mu-spin}
+
+::: {.column-margin}
+@eq-mu-spin 中 $\mathbf{S} = \hbar \mathbf{I}$ 为自旋角动量，其中 $\mathbf{I}$ 为无量纲自旋算符。这与 @eq-magnetic-moment 中 $\boldsymbol{\mu} = \gamma \hbar \mathbf{I}$ 等价。
+:::
+
+这一关系使得我们可以通过测量宏观电磁效应（磁矩），间接探测微观量子态（自旋）。
+
+## 磁矩在 MRI 中的核心地位 {#sec-magnetic-moment-role}
+
+建立磁矩概念，使得物理学能够用单一矢量 $\boldsymbol{\mu}$ 封装复杂的电流分布或抽象的量子自旋。在 MRI 物理中，它是连接微观质子行为与宏观磁化矢量的关键纽带：
+
+$$
+\mathbf{M} = \frac{1}{V} \sum_i \boldsymbol{\mu}_i
+$$ {#eq-magnetization}
+
+::: {.column-margin}
+$\mathbf{M}$ 为**磁化矢量（Magnetization）**，是单位体积内所有磁矩的矢量和。布洛赫方程（@eq-bloch）正是描述 $\mathbf{M}$ 的运动方程。
+:::
+
+这使得利用经典矢量模型（布洛赫方程）描述量子系综演化成为可能。

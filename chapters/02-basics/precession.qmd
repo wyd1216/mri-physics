@@ -1,0 +1,226 @@
+# 进动 {#sec-precession}
+
+## 直观理解：陀螺类比 {#sec-precession-intuition}
+
+在 MRI 中，**进动（Precession）**是指氢质子在强磁场中表现出的特殊旋转方式。可以借助陀螺来建立直觉：
+
+- 当陀螺完全垂直时，它只是安静地自转。
+- 当陀螺受到重力干扰稍微倾斜时，它的轴并不会直接倒在地上，而是开始绕着垂直方向画圆圈——这种"摇头晃脑"画圆的运动就是进动。
+
+质子在 MRI 磁场中的行为与倾斜陀螺完全类似：它绕着主磁场方向（Z 轴）不停地画圆。这是两种力量"较劲"的结果：
+
+- **磁场的"拉力"**：外部主磁场 $\mathbf{B}_0$ 试图将质子的磁矩拉向与磁场平行的方向。
+- **质子的"倔强"**：质子本身拥有自旋角动量。根据陀螺效应，旋转物体受到外力推拉时不会顺着力的方向倒下，而是向侧面移动。
+
+::: {.column-margin}
+磁场想把质子拉正，质子却借力向侧面滑去。这种持续的侧向移动最终形成了围绕磁场方向的圆周运动——进动。
+:::
+
+## 经典力学描述 {#sec-precession-classical}
+
+从经典力学的角度，进动是指一个自转的刚体，当受到一个**与其角动量方向不共线的力矩**作用时，其自转轴（即角动量矢量 $\vec{L}$ 的方向）绕空间中某一固定轴线进行的圆锥形回旋运动。
+
+::: {.callout-note}
+## 什么是力矩？
+**力矩（Torque, $\boldsymbol{\tau}$）**是让物体转动的"源动力"，定义为力与力臂的叉积 $\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}$。与力使物体平移不同，力矩使物体旋转。力矩的大小取决于力的大小和施力点到转轴的距离：同样的力，距离转轴越远，力矩越大——这就是门把手装在离合页最远处的原因。
+:::
+
+进动的物理本质源于**角动量定理**。对于定点转动的刚体，角动量的时间导数等于合外力矩：
+
+$$
+\frac{d\vec{L}}{dt} = \vec{\tau}
+$$ {#eq-angular-momentum-theorem}
+
+在典型的进动场景中，外力矩 $\vec{\tau}$ 与角动量 $\vec{L}$ 的方向**垂直**。由于 $d\vec{L} = \vec{\tau} \, dt$ 垂直于 $\vec{L}$，力矩的作用不会改变角动量的大小（自转速率不变），只会改变角动量的**方向**。$\vec{L}$ 的顶端沿 $d\vec{L}$ 方向移动，描绘出一个圆锥面——这就是进动。
+
+在稳态进动条件下，力矩、进动角速度和角动量满足：
+
+$$
+\vec{\tau} = \vec{\Omega}_p \times \vec{L}
+$$ {#eq-precession-torque}
+
+进动角速度的标量形式为：
+
+$$
+\Omega_p = \frac{\tau}{L \sin\theta}
+$$ {#eq-precession-rate}
+
+::: {.column-margin}
+从 @eq-precession-rate 可以看出一个反直觉的特性：自转角速度越**快**（$L$ 越大），进动角速度就越**慢**。这就是高速旋转物体具有极强定轴性的原因。
+:::
+
+## 拉莫尔进动与拉莫尔频率 {#sec-larmor-precession}
+
+在 MRI 物理中，带有磁矩 $\boldsymbol{\mu}$ 的质子在外磁场 $\mathbf{B}_0$ 中受到力矩 $\boldsymbol{\tau} = \boldsymbol{\mu} \times \mathbf{B}$（即 @eq-torque），从而绕磁场方向进动，这就是**拉莫尔进动**。
+
+根据磁矩与角动量的关系 $\boldsymbol{\mu} = \gamma \mathbf{J}$，运动方程可写为：
+
+$$
+\frac{d\boldsymbol{\mu}}{dt} = \gamma (\boldsymbol{\mu} \times \mathbf{B})
+$$ {#eq-mu-eom}
+
+此方程表明磁矩矢量的变化方向始终垂直于 $\boldsymbol{\mu}$ 和 $\mathbf{B}$ 构成的平面，导致 $\boldsymbol{\mu}$ 绕 $\mathbf{B}$ 轴作等角速度进动。进动的角频率称为**拉莫尔频率**：
+
+$$
+\omega_0 = \gamma B_0
+$$ {#eq-larmor}
+
+::: {.column-margin}
+**简要推导**：设 $\mathbf{B} = B_0 \hat{z}$，将 @eq-mu-eom 写成分量形式：$\dot{\mu}_x = \gamma B_0 \mu_y$，$\dot{\mu}_y = -\gamma B_0 \mu_x$。令 $\mu_+ = \mu_x + i\mu_y$，两式合并得 $\dot{\mu}_+ = -i\gamma B_0 \mu_+$，解为 $\mu_+(t) = \mu_+(0)\,e^{-i\omega_0 t}$，其中 $\omega_0 = \gamma B_0$。这正是横向平面以角频率 $\omega_0$ 做圆周运动的复数表示。
+:::
+
+::: {.callout-note}
+## 频率与角频率
+频率 $f$（单位 Hz）衡量"每秒多少圈"，角频率 $\omega$（单位 rad/s）衡量"每秒多少弧度"。两者通过 $\omega = 2\pi f$ 相联系。在理论推导中使用 $\omega$ 可避免公式中出现大量 $2\pi$ 因子，使数学更简洁。例如正弦波 $y(t) = \sin(\omega t)$ 的导数为 $y'(t) = \omega \cos(\omega t)$；若用 $f$ 则需写成 $y(t) = \sin(2\pi f t)$，导数中多出 $2\pi$ 系数。
+:::
+
+以赫兹表示的频率 $f_0 = \gamma B_0 / (2\pi)$。由于 $\gamma$ 是特定原子核的固有物理常数，拉莫尔频率完全由磁场强度决定。在临床 MRI 环境中，氢质子的拉莫尔频率如下：
+
+| 磁场强度 $B_0$ | 旋磁比 $\gamma/(2\pi)$ | 拉莫尔频率 $f_0$ |
+|:---|:---|:---|
+| 1.0 T | 42.576 MHz/T | 42.58 MHz |
+| 1.5 T | 42.576 MHz/T | 63.87 MHz |
+| 3.0 T | 42.576 MHz/T | 127.74 MHz |
+
+: 不同磁场强度下氢质子的拉莫尔频率 {#tbl-larmor-freq}
+
+::: {.callout-tip}
+## 拉莫尔频率的意义
+只有当射频脉冲的频率与原子核的拉莫尔频率精确匹配（共振条件）时，才能有效地将能量传递给自旋系统，导致磁化矢量的翻转和横向磁化分量的产生。
+:::
+
+## 量子力学描述 {#sec-precession-quantum}
+
+从量子力学角度看，进动并非实体的机械旋转，而是**量子态随时间演化**的宏观体现。
+
+**能级分裂（塞曼效应）**：在磁场 $B_0$ 中，质子（自旋 $1/2$ 粒子）的哈密顿量为
+
+$$
+H = -\boldsymbol{\mu} \cdot \mathbf{B} = -\gamma B_0 S_z = -\frac{\hbar \omega_0}{2} \sigma_z
+$$ {#eq-hamiltonian-b0}
+
+其中 $\sigma_z$ 为泡利矩阵，$\omega_0 = \gamma B_0$ 为拉莫尔频率。原本简并的自旋态分裂为两个本征态：
+
+- **低能态** $|\!\uparrow\rangle$：自旋平行于磁场
+- **高能态** $|\!\downarrow\rangle$：自旋反平行于磁场
+
+能量差为 $\Delta E = \hbar \omega_0$（参见 @eq-zeeman-energy）。
+
+::: {.column-margin}
+塞曼分裂的能量差 $\Delta E = \hbar \omega_0$ 正是核磁共振跃迁所需的能量。射频脉冲的光子能量 $E = h f_0 = \hbar \omega_0$ 恰好与之匹配，这就是**共振**条件。
+:::
+
+**时间演化算符**：系统的时间演化由算符 $U(t)$ 描述：
+
+$$
+U(t) = e^{-iHt/\hbar} = e^{i \frac{\omega_0 t}{2} \sigma_z} = \begin{pmatrix} e^{i\omega_0 t/2} & 0 \\ 0 & e^{-i\omega_0 t/2} \end{pmatrix}
+$$ {#eq-time-evolution}
+
+**叠加态的相位演化**：进动现象仅发生于质子处于量子叠加态时（即磁化矢量偏离 Z 轴）。假设 $t=0$ 时自旋沿 $+x$ 方向（如经过 $90°$ 脉冲翻转后）：
+
+$$
+|\psi(0)\rangle = |{+x}\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+$$
+
+施加时间演化算符后：
+
+$$
+|\psi(t)\rangle = U(t) |\psi(0)\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} e^{i\omega_0 t/2} \\ e^{-i\omega_0 t/2} \end{pmatrix}
+$$ {#eq-state-evolution}
+
+物理信息完全编码在两个分量的**相对相位** $e^{i\omega_0 t}$ 中。
+
+**期望值的旋转**：计算自旋算符 $S_x = \frac{\hbar}{2}\sigma_x$、$S_y = \frac{\hbar}{2}\sigma_y$ 的期望值，可将复数相位映射为实空间中的旋转。
+
+对于 $\langle S_x(t) \rangle$：
+
+$$
+\begin{aligned}
+\langle S_x \rangle &= \langle \psi(t) | S_x | \psi(t) \rangle \\
+&= \frac{\hbar}{4} \left( e^{-i\omega_0 t} + e^{i\omega_0 t} \right) = \frac{\hbar}{2} \cos(\omega_0 t)
+\end{aligned}
+$$ {#eq-sx-expectation}
+
+对于 $\langle S_y(t) \rangle$：
+
+$$
+\begin{aligned}
+\langle S_y \rangle &= \langle \psi(t) | S_y | \psi(t) \rangle \\
+&= \frac{\hbar}{4} i \left( e^{i\omega_0 t} - e^{-i\omega_0 t} \right) = -\frac{\hbar}{2} \sin(\omega_0 t)
+\end{aligned}
+$$ {#eq-sy-expectation}
+
+::: {.column-margin}
+宏观上看到的"进动"，本质上是波函数在复平面上的相对相位随时间周期性变化，导致自旋算符的期望值在横向平面上旋转。
+:::
+
+**密度矩阵的物理诠释**：引入密度矩阵 $\rho(t) = |\psi(t)\rangle\langle\psi(t)|$ 可以更深刻地理解这一过程：
+
+$$
+\rho(t) = \frac{1}{2} \begin{pmatrix} 1 & e^{i\omega_0 t} \\ e^{-i\omega_0 t} & 1 \end{pmatrix}
+$$ {#eq-density-matrix}
+
+- **对角元（布居数）**：$\rho_{11} = \rho_{22} = 1/2$，恒定不变，解释了 $M_z$ 分量不变。
+- **非对角元（量子相干项）**：$\rho_{12}$ 和 $\rho_{21}$ 包含振荡项 $e^{\pm i\omega_0 t}$。
+
+当计算 $\langle S_x \rangle = \mathrm{Tr}(\rho S_x)$ 时，泡利矩阵 $\sigma_x$、$\sigma_y$ 的反对角线结构专门提取密度矩阵的非对角元（相干项）。因此，**复数相位的演化**通过泡利矩阵的非对角耦合被"投影"到实数空间，表现为磁化矢量的旋转——这就是"虚数相位变化转化为实数旋转"的严格量子力学解释。
+
+::: {.callout-tip}
+## 数学本质
+进动的数学结构是 SU(2) 群到 SO(3) 群的同态映射：SU(2) 中的时间演化算符 $U(t) = e^{i\omega_0 t \sigma_z/2}$ 作用于二维复旋量空间（态矢量），而其物理效果通过期望值映射为 SO(3) 中三维实空间的旋转（磁化矢量的进动）。
+:::
+
+## 微观进动与宏观磁化 {#sec-precession-micro-macro}
+
+理解 MRI 信号需要严格区分**微观粒子行为**与**宏观系综表现**。
+
+**微观层面**：根据运动方程 @eq-mu-eom，只要存在主磁场 $\mathbf{B}_0$，每个质子的磁矩**始终**处于进动状态，进动频率严格遵循 $\omega_0 = \gamma B_0$。但由于热扰动和自旋-晶格相互作用，每个质子在横向平面上的相位角 $\phi_i$ 是完全随机的。
+
+**宏观层面**：MRI 测量的是净磁化矢量 $\mathbf{M} = \frac{1}{V}\sum_i \boldsymbol{\mu}_i$（即 @eq-magnetization）。
+
+- **平衡态**（仅 $\mathbf{B}_0$，未施加射频脉冲）：
+  - **纵向分量 $M_z$**：玻尔兹曼分布导致平行态质子略多于反平行态，产生非零 $M_z$。
+  - **横向分量 $M_{xy}$**：由于相位 $\phi_i$ 在 $[0, 2\pi)$ 间均匀分布，无数微观横向磁矩发生**相消干涉**，$M_{xy} = 0$。
+- **激发态**（施加共振射频脉冲 $\mathbf{B}_1$ 后）：
+  - **章动**：$\mathbf{M}$ 绕 $\mathbf{B}_1$ 旋转，从纵向翻转至横向。
+  - **相位同调**：$\mathbf{B}_1$ 作为强迫驱动力，使原本相位随机的质子群在特定方向上聚焦（$\phi_1 \approx \phi_2 \approx \cdots \approx \phi_N$），微观矢量发生**相长干涉**。
+  - **结果**：宏观横向磁化矢量 $M_{xy}$ 显现，并以 $\omega_0$ 绕 Z 轴旋转。
+
+::: {.callout-important}
+## 微观 vs. 宏观进动
+微观进动是**个体本性**——只要有 $\mathbf{B}_0$，质子就在进动。宏观进动是**群体共识**——需要射频脉冲建立相位一致性后，$\mathbf{M}$ 才表现出可测量的横向进动。MRI 信号本质上是对这种"群体共识（相位一致性）"的测量。
+:::
+
+单个质子的横向磁矩 $\mu_x = \gamma S_x$，宏观磁化强度是所有质子的统计总和：
+
+$$
+M_x = N \gamma \langle S_x \rangle
+$$ {#eq-mx-sx}
+
+::: {.column-margin}
+@eq-mx-sx 表明：在量子力学方程中算出的 $\langle S_x \rangle$ 随时间怎么变（如 $\cos \omega_0 t$），现实中的 $M_x$ 就严格按同样的规律变化，只是被放大了 $N\gamma$ 倍。
+:::
+
+## 进动信号的实验测量 {#sec-precession-measurement}
+
+MRI 中并不直接"看"原子核，而是通过**接收线圈**探测进动引起的电磁感应信号。从量子态到可观测信号的完整物理链条如下：
+
+1. **量子态** → 波函数复数相位的周期性演化（$e^{-i\omega_0 t}$，微观不可见）
+2. **算符期望值** → 相位干涉转化为实数振荡（$\langle S_x \rangle \propto \cos(\omega_0 t)$）
+3. **磁化矢量 $\mathbf{M}$** → 约 $10^{20}$ 个质子的统计总和（宏观放大）
+4. **磁通量 $\Phi$** → 旋转的 $\mathbf{M}$ 切割接收线圈，磁通量周期变化
+5. **感应电压 $V(t)$** → 法拉第电磁感应定律 $\mathcal{E} = -d\Phi/dt$ 在线圈中产生信号
+
+::: {.column-margin}
+感应电压信号的频率正是进动频率 $\omega_0$，幅度正比于磁化矢量的横向分量 $|M_{xy}|$。
+:::
+
+| 阶段 | 物理实体 | 描述 | 数学关联 |
+|:---|:---|:---|:---|
+| 量子态 | 波函数相位 | 复数相位的周期演化 | $e^{-i\omega_0 t}$ |
+| 数学映射 | 算符期望值 | 相位干涉 → 实数振荡 | $\langle S_x \rangle \propto \cos(\omega_0 t)$ |
+| 宏观放大 | 磁化矢量 $\mathbf{M}$ | $N$ 个粒子统计求和 | $M_x = N\gamma \langle S_x \rangle$ |
+| 信号转换 | 磁通量 $\Phi$ | 旋转磁场切割线圈 | $\mathcal{E} = -d\Phi/dt$ |
+| 实验读数 | 感应电压 $V(t)$ | 接收线圈中的正弦信号 | $V(t) \propto \omega_0 M_{xy}$ |
+
+: 从量子进动到 MRI 信号的完整物理链条 {#tbl-signal-chain}
