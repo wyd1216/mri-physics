@@ -127,6 +127,7 @@ $$ {#eq-larmor}
 ```
 
 - 物理量用 LaTeX 排版：`$\text{H}_2\text{O}$`（化学式用 `\text{}`）
+- **禁止使用 Unicode 特殊符号**（如 →、←、≈、≤ 等），必须用 LaTeX 命令替代（如 `$\to$`、`$\leftarrow$`、`$\approx$`、`$\leq$`），否则 PDF 编译会产生乱码
 
 ### 边栏注释（Tufte 风格）
 
